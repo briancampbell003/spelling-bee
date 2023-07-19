@@ -1,6 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
+class Word extends Model {
+
+    // CAN PUT functions in here
+
+}
+
 Word.init(
     {
         id: {
@@ -39,7 +45,7 @@ Word.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'dream',
+        modelName: 'word',
     }
 
 );

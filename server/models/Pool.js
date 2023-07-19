@@ -1,6 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
+class Pool extends Model {
+
+    // could put functions in here
+
+}
+
 Pool.init(
     {
         id: {
@@ -19,8 +25,8 @@ Pool.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: "user",
+        modelName: "pool",
     }
 );
 
-module.exports = User;
+module.exports = Pool;
