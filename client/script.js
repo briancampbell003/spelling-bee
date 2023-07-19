@@ -12,9 +12,14 @@ let searchBtnHandler = (event) => {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
+                    console.log(data);
                     let word = data[0].meta.id;
-                    let definition = data[0].shortdef[0];
-                    console.log('YOUR WORD IS', word, "WHICH MEANS", definition);
+                    let partOfSpeech = data[0].fl;
+                    let etymology = data[0].et[0][1];
+                    let definition1 = data[0].shortdef[0];
+                    let definition2 = data[0].shortdef[1];
+                    let definition3 = data[0].shortdef[2];
+                    console.log('YOUR WORD IS', word, "WHICH MEANS", definition1, 'OR', definition2, 'OR', definition3, ". IT IS A ", partOfSpeech, "WITH ORIGINS ", etymology);
                 });
             } else {
                 // ADD alert modal
