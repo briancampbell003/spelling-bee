@@ -9,7 +9,7 @@ class Pool extends Model {
 
 Pool.init(
     {
-        id: {
+        poolId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,

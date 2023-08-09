@@ -7,6 +7,7 @@ router.post('/', async (req, res) => {
     const dbPoolData = await Pool.create({
         poolName: req.body.poolName,
     });
+    res.status(200).json(dbPoolData);
 
   } catch (err) {
     console.log(err);
@@ -17,13 +18,19 @@ router.post('/', async (req, res) => {
 // GET all pools
 router.get('/', async (req, res) => {
   try {
-    res.render('homepage', {
-      loggedIn: req.session.loggedIn,
+    const dbPoolData = await Pool.findAll({
     });
+
+    const pools = dbPoolData.map((pool) =>
+      pool.get({ plain: true })
+    );
+
+    res.status(200).json(dbPoolData);
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
+
 
 module.exports = router;

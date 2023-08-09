@@ -1,13 +1,8 @@
 const Pool = require('./Pool');
 const Word = require('./Word');
 
+Word.belongsTo(Pool);
 
-Pool.hasMany(Word, {
-    foreignKey: 'word_id',
-});
-
-Word.belongsTo(Pool, {
-    foreignKey: 'pool_id',
-});
+Pool.hasMany(Word);
 
 module.exports = { Pool, Word };

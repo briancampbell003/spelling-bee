@@ -9,7 +9,7 @@ class Word extends Model {
 
 Word.init(
     {
-        id: {
+        wordId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -20,7 +20,7 @@ Word.init(
             allowNull: false,
             references: {
                 model: 'pool',
-                key: 'id',
+                key: 'poolId',
             },
         },
         word: {
@@ -45,7 +45,7 @@ Word.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'word',
+        modelName: "word",
     }
 
 );
