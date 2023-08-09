@@ -4,15 +4,13 @@ const { Word } = require("../../models");
 // ADD new word
 router.post("/", async (req, res) => {
     try {
-        const dbDreamData = await Word.create({
-            //   title: req.body.title,
-            //   content: req.body.content,
-            //   date: req.body.date,
-            //   user_id: req.session.loggedUser,
-            //   tag: req.body.tag,
-            //   private: req.body.private,
-            //   lucid: req.body.lucid,
-            //   nightmare: req.body.nightmare,
+        const dbWordData = await Word.create({
+              id: req.body.id,
+              poolId: req.body.poolId,
+              word: req.body.word,
+              definition: req.body.definition,
+              partOfSpeech: req.body.partOfSpeech,
+              etymology: req.body.etymology,
         });
 
     } catch (err) {

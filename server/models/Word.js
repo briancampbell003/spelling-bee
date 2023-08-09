@@ -15,7 +15,7 @@ Word.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        pool_id: {
+        poolId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
