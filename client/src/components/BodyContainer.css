@@ -1,0 +1,12 @@
+.body-container {
+    position: relative;
+    top: 0px;
+    left: 250px;
+    width: calc(100vw - 250px);
+    background-color: antiquewhite;
+}
+
+h1 {
+    /* text-align: end; */
+    padding-left: 10vw;
+}

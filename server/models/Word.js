@@ -20,7 +20,7 @@ Word.init(
             allowNull: false,
             references: {
                 model: 'pool',
-                key: 'poolId',
+                key: 'id',
             },
         },
         word: {

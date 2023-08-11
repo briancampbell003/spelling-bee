@@ -1,8 +1,14 @@
 const Pool = require('./Pool');
 const Word = require('./Word');
 
-Word.belongsTo(Pool);
+Pool.hasMany(Word, {
+    foreignKey: 'poolId',
+    onDelete: 'CASCADE',
+});
 
-Pool.hasMany(Word);
+Word.belongsTo(Pool, {
+    foreignKey: 'poolId',
+});
+
 
 module.exports = { Pool, Word };

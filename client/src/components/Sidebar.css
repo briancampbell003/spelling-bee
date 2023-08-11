@@ -1,0 +1,32 @@
+.sidebar-contain {
+    position: fixed;
+    width: 250px;
+    padding-top: 25px;
+}
+
+.brian-name {
+    font-family: 'Source Code Pro', monospace;
+    color: antiquewhite;
+    font-size: 30px;
+    text-align: center;
+}
+
+.brian-pic {
+    background-image:url("../assets/headshot.png");
+    background-position: center;
+    background-size: cover;
+
+    width: 150px;
+    height: 150px;
+    margin-left: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    border: 3px solid red;
+}
+
+.about-me {
+    font-family: 'Source Code Pro', monospace;
+    color: antiquewhite;
+    text-align: center;
+}

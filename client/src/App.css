@@ -1,0 +1,15 @@
+* {
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0px;
+  padding: 0px;
+  /* border: 1px solid red; */
+}
+
+:root {
+  --primary: rgb(5, 45, 15);
+  --secondary: #c0f1ed;
+  --tertiary: #83fcfc;
+  --error: rgb(228, 46, 1);
+  --border-radius: 0.3rem;
+  background-color: var(--primary);
+}
