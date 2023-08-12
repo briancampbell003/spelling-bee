@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './WordAdder.css';
 
 function WordAdder() {
-    // var searchBtn = document.querySelector("#searchBtn");
+    const [word, setWord] = useState('');
+    // const [data, setData] = useState([]);
+
+    const fetchData = (value) => {
+        
+    }
+
+    const handleSearch = async () => {
+        useEffect(() => {
+            fetch('https://www.dictionaryapi.com/api/v3/references/collegiate/json/' + word + '?key=4013f53d-9186-47c1-acb8-17287689092c')
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    setWord(data);
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                });
+        }, []);
+    }
 
     // let searchBtnHandler = (event) => {
     //     console.log('button click');
@@ -38,12 +57,12 @@ function WordAdder() {
         <div>
             <h1>Add a word to your pool</h1>
             <form id="word-form">
-                <input type="text" name="wordName" id="wordName" />
-                    <button type="submit" id="searchBtn">Search</button>
+                <input className="wordName" placeholder="Lookup your word" value={word} onChange={e => setWord(e.target.value)} />
+                <button type="submit" className="searchBtn" onClick={handleSearch}>Search</button>
             </form>
 
             <div id="wordResult">
-                <p id="returnedWord"></p>
+                <p id="returnedWord">word: {data}</p>
                 <p id="returnedMoreDate"></p>
 
             </div>
