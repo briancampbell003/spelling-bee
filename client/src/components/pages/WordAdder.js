@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './WordAdder.css';
 
 function WordAdder() {
     const [word, setWord] = useState('');
-    // const [data, setData] = useState([]);
+    const [wordData, setWordData] = useState([]);
 
-    const fetchData = (value) => {
-        
-    }
-
-    const handleSearch = async () => {
-        useEffect(() => {
-            fetch('https://www.dictionaryapi.com/api/v3/references/collegiate/json/' + word + '?key=4013f53d-9186-47c1-acb8-17287689092c')
+    const fetchData = (word) => {
+        fetch('https://www.dictionaryapi.com/api/v3/references/collegiate/json/' + word + '?key=4013f53d-9186-47c1-acb8-17287689092c')
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data);
-                    setWord(data);
+                    setWordData(data);
                 })
                 .catch((err) => {
                     console.log(err.message);
                 });
-        }, []);
+    }
+
+    function handleSearch(word) {
+        
+        console.log("handling a search here");
+        fetchData(word);
     }
 
     // let searchBtnHandler = (event) => {
@@ -62,7 +62,7 @@ function WordAdder() {
             </form>
 
             <div id="wordResult">
-                <p id="returnedWord">word: {data}</p>
+                <p id="returnedWord"></p>
                 <p id="returnedMoreDate"></p>
 
             </div>
