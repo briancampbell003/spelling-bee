@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from './Navbar';
-import WordAdder from './pages/WordAdder';
+import WordAdder from './pages/WordAdder/WordAdder';
 import './BodyContainer.css';
 
 export default function BodyContainer() {
