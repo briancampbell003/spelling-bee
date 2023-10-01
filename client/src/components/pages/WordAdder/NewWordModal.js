@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './WordAdder.css';
 
-function NewWord(props) {
+function NewWordModal(props) {
     // const [word, setWord] = useState('');
 
     function handleChange(e) {
@@ -36,4 +36,4 @@ function NewWord(props) {
     )
 }
 
-export default NewWord;
+export default NewWordModal;

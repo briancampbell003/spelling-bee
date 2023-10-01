@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
-import NewWord from './NewWord';
+import NewWordModal from './NewWordModal';
 import './WordAdder.css';
 
 function WordAdderForm(props) {
     const [word, setWord] = useState('');
-    
+
     const fetchData = (word) => {
         fetch('https://www.dictionaryapi.com/api/v3/references/collegiate/json/' + word + '?key=4013f53d-9186-47c1-acb8-17287689092c')
-                .then((response) => response.json())
-                .then((data) => {
-                    < NewWord wordData={data} />
-                    console.log(data);
-                        let word = data[0].meta.id;
-                        let partOfSpeech = data[0].fl;
-                        let etymology = data[0].et[0][1];
-                        let definition1 = data[0].shortdef[0];
-                        let definition2 = data[0].shortdef[1];
-                        let definition3 = data[0].shortdef[2];
-                    console.log('YOUR WORD IS', word, "WHICH MEANS", definition1, 'OR', definition2, 'OR', definition3, ". IT IS A ", partOfSpeech, "WITH ORIGINS ", etymology);
+            .then((response) => response.json())
+            .then((data) => {
+                < NewWord wordData={data} />
+                console.log(data);
+                let word = data[0].meta.id;
+                let partOfSpeech = data[0].fl;
+                let etymology = data[0].et[0][1];
+                let definition1 = data[0].shortdef[0];
+                let definition2 = data[0].shortdef[1];
+                let definition3 = data[0].shortdef[2];
+                console.log('YOUR WORD IS', word, "WHICH MEANS", definition1, 'OR', definition2, 'OR', definition3, ". IT IS A ", partOfSpeech, "WITH ORIGINS ", etymology);
 
-                })
-                .catch((err) => {
-                    console.log(err.message);
-                });
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
     }
 
     function handleChange(e) {
@@ -42,6 +42,12 @@ function WordAdderForm(props) {
                 <input className="wordName" placeholder="Lookup your word" value={word} onChange={handleChange} />
                 <button type="submit" className="searchBtn">Search</button>
             </form>
+
+            <NewWordModal
+                isOpen={isNewsletterModalOpen}
+                onSubmit={handleFormSubmit}
+                onClose={handleCloseNewsletterModal}
+            />
         </>
     )
 }
